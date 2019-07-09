@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+bin/
+obj/
+
+# Vim swap files
+.swp
+.swo
+
+# Finder annoying things
+.DS_STORE
+.DS_STORE/
