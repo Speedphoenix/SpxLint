@@ -1,11 +1,35 @@
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
-
 #include "spxlint.h"
 
+#include <sstream>
+
 using namespace std;
+
+Config Config::globalConfig = nullptr;
+
+Config::Config(int argc, char **argv)
+{
+
+}
+
+FileCheck::FileCheck(char *filename)
+{
+	ifstream fic(argv[i]);
+	readFile(fic);
+}
+
+FileCheck::FileCheck(istream& what)
+{
+	readFile(what);
+}
+
+void FileCheck::readFile(istream& what)
+{
+	string inter;
+	while (getline(what, inter))
+	{
+		fullFile.push_back(inter);
+	}
+}
 
 int checkLineLength(vector<string>& fullFile)
 {
@@ -21,23 +45,9 @@ int checkLineLength(vector<string>& fullFile)
 	return rep;
 }
 
-void readfile(istream& what, vector<string>& toFill)
-{
-	string inter;
-	while (getline(what, inter))
-	{
-		toFill.push_back(inter);
-	}
-}
-
-int dofile(istream& what)
-{
-	vector<string> fullFile;
-	readfile(what, fullFile);
-}
-
 int main(int argc, char **argv)
 {
+	Config::globalConfig = new Config(argc, argv);
 	// argv[0] is the binary name
 	if (argc <= 1)
 	{

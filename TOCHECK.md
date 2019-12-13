@@ -13,6 +13,7 @@
 - header protection
 - preprocessor indent
 - check for the case
+- Check for magic numbers
 
 number of opening everything
 have some flags set when we're in an initalization (const ... =)
